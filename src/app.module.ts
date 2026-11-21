@@ -35,6 +35,7 @@ import { CampaignModule } from './campaign/campaign.module';
 import { WholesaleOrderRequestModule } from './wholesale-order-request/wholesale-order-request.module';
 import { NewsModule } from './news/news.module';
 import { SupplierModule } from './supplier/supplier.module';
+import { VideoModule } from './video/video.module';
 
 @Module({
   imports: [
@@ -74,6 +75,7 @@ import { SupplierModule } from './supplier/supplier.module';
     CampaignModule,
     WholesaleOrderRequestModule,
     NewsModule,
+    VideoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

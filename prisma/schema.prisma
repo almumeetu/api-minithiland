@@ -81,6 +81,16 @@ enum PaymentTransactionStatus {
   failed
 }
 
+enum VideoType {
+  reel
+  video
+}
+
+enum VideoSource {
+  facebook
+  upload
+}
+
 // ======================================================
 // 👤 1. AUTH & USER SYSTEM
 // ======================================================
@@ -344,6 +354,7 @@ model Product {
   tags             Tag[]
   discountProducts DiscountProduct[]
   wholesaleRequestItems WholesaleOrderRequestItem[]
+  videos           Video[]
 
   @@map("products")
 }
@@ -903,6 +914,35 @@ model DiscountProduct {
 
   @@id([discountId, productId])
   @@map("discount_products")
+}
+
+// ======================================================
+// 🎬 18. VIDEO & REELS SHOWCASE
+// ======================================================
+
+model Video {
+  id           String      @id @default(uuid())
+  title        String
+  caption      String?
+  type         VideoType   @default(reel)
+  source       VideoSource @default(facebook)
+  facebookUrl  String?     @map("facebook_url")
+  videoUrl     String?     @map("video_url")
+  thumbnailUrl String      @map("thumbnail_url")
+  durationSec  Int         @default(0) @map("duration_sec")
+  views        String?     @default("0")
+  likes        String?     @default("0")
+  productId    String?     @map("product_id")
+  product      Product?    @relation(fields: [productId], references: [id], onDelete: SetNull)
+  isFeatured   Boolean     @default(false) @map("is_featured")
+  isActive     Boolean     @default(true) @map("is_active")
+  sortOrder    Int         @default(0) @map("sort_order")
+  createdAt    DateTime    @default(now()) @map("created_at")
+  updatedAt    DateTime    @updatedAt @map("updated_at")
+
+  @@index([isActive, sortOrder])
+  @@index([productId])
+  @@map("videos")
 }
 
 
