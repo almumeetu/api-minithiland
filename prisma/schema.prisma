@@ -322,7 +322,7 @@ model Product {
   brandId String
 
   category   Category? @relation(fields: [categoryId], references: [id], onDelete: Restrict)
-  categoryId String?   @map("category_id")
+  categoryId String?
 
   unit   Unit?   @relation(fields: [unitId], references: [id])
   unitId String? @map("unit_id")
