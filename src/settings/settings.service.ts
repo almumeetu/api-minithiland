@@ -24,8 +24,8 @@ export class SettingsService {
     if (!setting) {
       setting = await this.prisma.setting.create({
         data: {
-          shopName: 'NovaMart',
-          slogan: "Bangladesh's Premier Multi-Category Online Store",
+          shopName: 'MiniThailandBD',
+          slogan: "Bangladesh's Premier Fashion & Lifestyle Online Store",
           currency: 'BDT',
           deliveryChargeInside: 60,
           deliveryChargeOutside: 120,
@@ -36,9 +36,9 @@ export class SettingsService {
           ],
           socialContact: {
             whatsapp: '8801722301927',
-            facebook: 'https://facebook.com/novamart.bd',
-            instagram: 'https://instagram.com/novamart.bd',
-            youtube: 'https://youtube.com/@novamartbd',
+            facebook: 'https://www.facebook.com/minithailand2022/',
+            instagram: 'https://instagram.com/minithailandbd',
+            youtube: 'https://youtube.com/@minithailandbd',
           },
         },
       });

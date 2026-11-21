@@ -37,8 +37,8 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('Ecom API')
-    .setDescription('E-commerce API documentation')
+    .setTitle('MiniThailandBD API')
+    .setDescription('MiniThailandBD — Bangladesh\'s premier fashion e-commerce API')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
