@@ -31,14 +31,14 @@ export class SettingsService {
           deliveryChargeOutside: 120,
           deliveryChargeNearCity: 80,
           contactNumber: [
-            { title: 'Hotline Support', value: '+880 1722-301927' },
-            { title: 'Customer Care', value: '01722301927' },
+            { title: 'Hotline Support', value: '+880 1706-126663' },
+            { title: 'Customer Care', value: '01706126663' },
           ],
           socialContact: {
-            whatsapp: '8801722301927',
+            whatsapp: '8801706126663',
             facebook: 'https://www.facebook.com/minithailand2022/',
-            instagram: 'https://instagram.com/minithailandbd',
-            youtube: 'https://youtube.com/@minithailandbd',
+            instagram: 'https://www.instagram.com/mini_thailand123',
+            youtube: 'https://www.youtube.com/@MiniThailand-pk5rs',
           },
         },
       });
