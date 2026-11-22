@@ -401,6 +401,48 @@ const BRANDS = [
 
 const CAMPAIGNS = [
   {
+    title: "Cocoa Blazer Lace Set",
+    description: "Tailored lace blazer with a satin tie-belt and a flowing skirt for evening occasions.",
+    status: "active",
+    hasDiscount: true,
+    image: "/images/campaigns/hero-cocoa-blazer-lace-set.jpg",
+  },
+  {
+    title: "Blush Bloom Embroidery",
+    description: "Delicate floral embroidery in a soft blush tone, a graceful pick for every festive occasion.",
+    status: "active",
+    hasDiscount: true,
+    image: "/images/campaigns/hero-blush-bloom-embroidery.jpg",
+  },
+  {
+    title: "Wine Lace Evening Set",
+    description: "Beaded floral lace top with a flowing satin skirt, made to stand out at every gathering.",
+    status: "active",
+    hasDiscount: true,
+    image: "/images/campaigns/hero-wine-lace-evening-set.jpg",
+  },
+  {
+    title: "Midnight Bloom Set",
+    description: "Elegant black floral print, soft and effortless. Made for every day and every occasion.",
+    status: "active",
+    hasDiscount: false,
+    image: "/images/campaigns/hero-midnight-bloom-set.jpg",
+  },
+  {
+    title: "Mocha Lace Co-ord Set",
+    description: "Intricate lace with statement buttons, graceful for celebrations and special days.",
+    status: "active",
+    hasDiscount: true,
+    image: "/images/campaigns/hero-mocha-lace-coord-set.jpg",
+  },
+  {
+    title: "Crimson Lace Edit",
+    description: "Romantic red lace with a tie-waist silhouette, made for celebrations and special evenings.",
+    status: "active",
+    hasDiscount: true,
+    image: "/images/campaigns/hero-crimson-lace-edit.jpg",
+  },
+  {
     title: "Exclusive Thai Cord Sets Collection",
     description: "সরাসরি ব্যাংকক থেকে আনা ১০০% অরিজিনাল সফট প্রিমিয়াম কর্ড সেট — ট্রেন্ডি ডিজাইন ও অতুলনীয় আরাম। সীমিত স্টক, এখনই অর্ডার করুন।",
     status: "active",
@@ -413,27 +455,6 @@ const CAMPAIGNS = [
     status: "active",
     hasDiscount: true,
     image: "/products/cords set/907179635_1119377164055012_4690738175147170981_n.jpg",
-  },
-  {
-    title: "Dubai Style Luxury Abaya & Modest Wear",
-    description: "মার্জিত ও আভিজাত্যপূর্ণ ডিজাইনের ফ্রন্ট ওপেন আবায়া, বোরকা সেট এবং ম্যাচিং প্রিমিয়াম হিজাব কালেকশন।",
-    status: "active",
-    hasDiscount: true,
-    image: "/products/cords set/910465086_1119291994063529_6730173952863950097_n.jpg",
-  },
-  {
-    title: "Winter Velvet & Cozy Chic Fashion Edit",
-    description: "চিটা প্রিন্ট লং কোট, ভেলভেট জ্যাকেট এবং শীতকালীন ট্রেন্ডি ফ্লিস সুইটশার্ট — ক্যাশ অন ডেলিভারি সারা বাংলাদেশে।",
-    status: "active",
-    hasDiscount: false,
-    image: "/products/cords set/916496639_2050418568951611_3231227725146044425_n.jpeg",
-  },
-  {
-    title: "Mini Thailand — Premier Boutique Fashion",
-    description: "বাংলাদেশের বিশ্বস্ত থাই ফ্যাশন ব্র্যান্ড — প্রিমিয়াম কোয়ালিটি, লাইভ ভিডিও চেকিং ও দ্রুত হোম ডেলিভারি সুবিধা।",
-    status: "active",
-    hasDiscount: true,
-    image: "/products/cords set/913180013_1120115427314519_7306115019982798276_n.jpg",
   },
 ];
 
