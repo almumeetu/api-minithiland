@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { PrismaClient } from '../src/generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import pg from 'pg';
+import { seedAuth } from './seed-auth';
 import { seedProducts } from './seed-products';
 
 async function main() {
@@ -9,6 +10,7 @@ async function main() {
   const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
   const prisma = new PrismaClient({ adapter: new PrismaPg(pool) });
   try {
+    await seedAuth(prisma);
     await seedProducts(prisma);
   } finally {
     await prisma.$disconnect();
@@ -17,6 +19,6 @@ async function main() {
 }
 
 main().catch(error => {
-  console.error('Catalog seeding failed:', error);
+  console.error('Database seeding failed:', error);
   process.exitCode = 1;
 });
