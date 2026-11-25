@@ -4,6 +4,7 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import pg from 'pg';
 import { seedAuth } from './seed-auth';
 import { seedProducts } from './seed-products';
+import { seedVideos } from './seed.videos';
 
 async function main() {
   if (!process.env.DATABASE_URL) throw new Error('DATABASE_URL is required');
@@ -12,6 +13,7 @@ async function main() {
   try {
     await seedAuth(prisma);
     await seedProducts(prisma);
+    await seedVideos(prisma);
   } finally {
     await prisma.$disconnect();
     await pool.end();

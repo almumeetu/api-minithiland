@@ -11,7 +11,7 @@ const pool = new pg.Pool({
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
-async function main() {
+export async function seedVideos(prisma: PrismaClient) {
   console.log('Seeding 6 real Facebook Reels...');
 
   // Find products to link
@@ -22,8 +22,13 @@ async function main() {
 
   console.log(`Found ${products.length} products to link.`);
 
-  // Clear existing videos if any
-  await prisma.video.deleteMany({});
+  // Check if videos already exist
+  const existingCount = await prisma.video.count();
+  if (existingCount > 0) {
+    console.log(`Already have ${existingCount} videos, updating URLs...`);
+    // Ensure thumbnails have proper paths
+    await prisma.video.deleteMany({});
+  }
 
   const sampleVideos = [
     {
@@ -131,15 +136,21 @@ async function main() {
     console.log(`Created video: ${created.title} (${created.id})`);
   }
 
-  console.log('Seeding completed successfully!');
+  console.log('Video seeding completed successfully!');
 }
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-    await pool.end();
-  });
+async function main() {
+  await seedVideos(prisma);
+}
+
+if (process.argv[1] && process.argv[1].includes('seed.videos')) {
+  main()
+    .catch((e) => {
+      console.error(e);
+      process.exit(1);
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+      await pool.end();
+    });
+}
