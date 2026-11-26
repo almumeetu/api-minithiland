@@ -1,5 +1,11 @@
 import bcrypt from 'bcryptjs';
+import pg from 'pg';
+import { PrismaPg } from '@prisma/adapter-pg';
+import dotenv from 'dotenv';
 import type { PrismaClient } from '../src/generated/prisma/client';
+import { PrismaClient as GeneratedPrismaClient } from '../src/generated/prisma/client';
+
+dotenv.config();
 
 /**
  * Top-level admin-panel sections that a role can be granted access to.
@@ -111,4 +117,24 @@ export async function seedAuth(prisma: PrismaClient) {
   });
 
   return { superadminRole, adminRole, userRole, superadmin, admin, customer };
+}
+
+if (process.argv[1] && process.argv[1].includes('seed-auth')) {
+  const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+  const prisma = new GeneratedPrismaClient({ adapter: new PrismaPg(pool) });
+  seedAuth(prisma)
+    .then(() => {
+      console.log('✅ Auth seeding complete!');
+      console.log('   Super Admin: superadmin@ecom.com (password: password)');
+      console.log('   Admin:       admin@ecom.com (password: password)');
+      console.log('   Customer:    customer@ecom.com (password: password)');
+    })
+    .catch((err) => {
+      console.error('❌ Auth seeding failed:', err);
+      process.exit(1);
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+      await pool.end();
+    });
 }
